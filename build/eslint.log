@@ -1,0 +1,15 @@
+
+e:\DELL\Downloads\Network_Flow\Network_Flow\NF\NF\ph3-exp-template-main\experiment\simulation\js\main.js
+    5:10  warning  'toggleTheme' is defined but never used      no-unused-vars
+  137:10  warning  'generateRandom' is defined but never used   no-unused-vars
+  188:10  warning  'switchInputTab' is defined but never used   no-unused-vars
+  197:10  warning  'loadCustomGraph' is defined but never used  no-unused-vars
+  249:12  warning  '_' is assigned a value but never used       no-unused-vars
+  300:32  warning  'idx' is defined but never used              no-unused-vars
+  357:10  warning  'initialize' is defined but never used       no-unused-vars
+  600:10  warning  'toggleView' is defined but never used       no-unused-vars
+  721:10  warning  'exportGraph' is defined but never used      no-unused-vars
+  957:39  warning  'e' is defined but never used                no-unused-vars
+
+✖ 10 problems (0 errors, 10 warnings)
+
