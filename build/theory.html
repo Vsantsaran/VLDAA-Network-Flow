@@ -306,53 +306,37 @@
               <h2 id="ford---fulkerson-algorithm">Ford - Fulkerson Algorithm</h2>
           
             </div>
-              <h3 id="link-your-theory-in-here">Link your theory in here</h3>
-          <h1 id="theory-fordfulkerson-algorithm-for-maximum-flow">Theory: Ford–Fulkerson Algorithm for Maximum Flow</h1>
+              <h2 id="theory-fordfulkerson-algorithm-for-maximum-flow">Theory: Ford–Fulkerson Algorithm for Maximum Flow</h2>
           <h2 id="1-introduction">1. Introduction</h2>
-          <p>The <strong>Maximum Flow Problem</strong> is a fundamental problem in graph theory and network optimization.<br>It focuses on determining the maximum amount of flow that can be sent from a <strong>source node</strong> to a <strong>sink node</strong> in a directed graph while respecting capacity constraints on edges.</p>
+          <p>The <strong>Maximum Flow Problem</strong> is a fundamental problem in graph theory and network optimization. It focuses on determining the maximum amount of flow that can be sent from a <strong>source node</strong> to a <strong>sink node</strong> in a directed graph while respecting capacity constraints on edges.</p>
           <p>The <strong>Ford–Fulkerson algorithm</strong> is one of the earliest and most intuitive methods developed to solve this problem. It forms the basis for many advanced flow algorithms and has applications in communication networks, transportation systems, scheduling, and resource allocation.</p>
-          <hr>
           <h2 id="2-flow-network-model">2. Flow Network Model</h2>
-          <p>A flow network is defined as a directed graph<br>$G = (V, E)$<br>where:</p>
+          <p>A flow network is defined as a directed graph G = (V, E) where:</p>
           <ul>
-          <li>$V$ is the set of vertices (nodes)</li>
-          <li>$E$ is the set of directed edges</li>
-          <li>Each edge $(u, v) \in E$ has a <strong>capacity</strong> $c(u, v) \ge 0$</li>
-          <li>A distinguished <strong>source</strong> node $s \in V$</li>
-          <li>A distinguished <strong>sink</strong> node $t \in V$</li>
+          <li>V is the set of vertices (nodes)</li>
+          <li>E is the set of directed edges</li>
+          <li>Each edge (u, v) ∈ E has a <strong>capacity</strong> c(u, v) ≥ 0</li>
+          <li>A distinguished <strong>source</strong> node s ∈ V</li>
+          <li>A distinguished <strong>sink</strong> node t ∈ V</li>
           </ul>
-          <hr>
           <h2 id="3-flow-constraints">3. Flow Constraints</h2>
-          <p>A flow function $f(u, v)$ must satisfy the following constraints:</p>
+          <p>A flow function f(u, v) must satisfy the following constraints:</p>
           <h3 id="31-capacity-constraint">3.1 Capacity Constraint</h3>
-          <p>For every edge $(u, v) \in E$:
-          $$
-          0 \le f(u, v) \le c(u, v)
-          $$</p>
+          <p>For every edge (u, v) ∈ E:</p>
+          <p>0 ≤ f(u, v) ≤ c(u, v)</p>
           <h3 id="32-flow-conservation">3.2 Flow Conservation</h3>
-          <p>For every vertex $v \in V \setminus {s, t}$:
-          $$
-          \sum_{u:(u,v)\in E} f(u, v) = \sum_{w:(v,w)\in E} f(v, w)
-          $$</p>
+          <p>For every vertex v ∈ V \ {s, t}:</p>
+          <p>Sum of incoming flow = Sum of outgoing flow</p>
           <h3 id="33-value-of-flow">3.3 Value of Flow</h3>
-          <p>The total flow from the source is defined as:
-          $$
-          |f| = \sum_{v:(s,v)\in E} f(s, v)
-          $$</p>
-          <hr>
+          <p>The total flow from the source is defined as the sum of all flows leaving the source node.</p>
           <h2 id="4-residual-graph">4. Residual Graph</h2>
-          <p>The <strong>residual graph</strong> $G_f = (V, E_f)$ represents the remaining capacity available for sending additional flow.</p>
-          <p>For each edge $(u, v)$:</p>
+          <p>The <strong>residual graph</strong> Gf = (V, Ef) represents the remaining capacity available for sending additional flow.</p>
+          <p>For each edge (u, v):</p>
           <ul>
-          <li>Forward edge residual capacity:<br>$$
-          c_f(u, v) = c(u, v) - f(u, v)
-          $$</li>
-          <li>Backward edge residual capacity:<br>$$
-          c_f(v, u) = f(u, v)
-          $$</li>
+          <li><strong>Forward edge residual capacity</strong>: cf(u, v) = c(u, v) - f(u, v)</li>
+          <li><strong>Backward edge residual capacity</strong>: cf(v, u) = f(u, v)</li>
           </ul>
           <p>Residual edges allow the algorithm to <strong>undo or redirect flow</strong>, enabling better solutions.</p>
-          <hr>
           <h2 id="5-fordfulkerson-method">5. Ford–Fulkerson Method</h2>
           <h3 id="51-core-idea">5.1 Core Idea</h3>
           <p>The algorithm repeatedly:</p>
@@ -363,12 +347,11 @@
           <li>Updates the residual graph</li>
           </ol>
           <p>This process continues until no augmenting path exists.</p>
-          <hr>
           <h3 id="52-algorithm-steps">5.2 Algorithm Steps</h3>
           <ol>
           <li>Initialize flow on all edges to <strong>0</strong></li>
           <li>Construct the residual graph</li>
-          <li>While there exists an augmenting path from $s$ to $t$:<ul>
+          <li>While there exists an augmenting path from s to t:<ul>
           <li>Find the bottleneck capacity along the path</li>
           <li>Augment the flow</li>
           <li>Update residual capacities</li>
@@ -376,7 +359,6 @@
           </li>
           <li>When no path exists, the current flow is <strong>maximum flow</strong></li>
           </ol>
-          <hr>
           <h2 id="6-augmenting-path-search">6. Augmenting Path Search</h2>
           <p>In practice, augmenting paths are found using:</p>
           <ul>
@@ -384,23 +366,16 @@
           <li><strong>BFS</strong> (Edmonds–Karp variant)</li>
           </ul>
           <p>Using BFS ensures predictable performance and avoids infinite loops when capacities are irrational.</p>
-          <hr>
           <h2 id="7-time-and-space-complexity">7. Time and Space Complexity</h2>
           <h3 id="71-time-complexity">7.1 Time Complexity</h3>
           <ul>
-          <li><strong>Generic Ford–Fulkerson</strong>:<br>Depends on the number of augmenting paths and capacity values<br>Worst case: <strong>unbounded</strong> for irrational capacities</li>
-          <li><strong>Edmonds–Karp (BFS-based)</strong>:
-          $$
-          O(VE^2)
-          $$</li>
+          <li><strong>Generic Ford–Fulkerson</strong>: Depends on the number of augmenting paths and capacity values. Worst case: <strong>unbounded</strong> for irrational capacities</li>
+          <li><strong>Edmonds–Karp (BFS-based)</strong>: O(VE²)</li>
           </ul>
           <h3 id="72-space-complexity">7.2 Space Complexity</h3>
           <ul>
-          <li><strong>Adjacency list + residual graph</strong>:<br>$$
-          O(V + E)
-          $$</li>
+          <li><strong>Adjacency list + residual graph</strong>: O(V + E)</li>
           </ul>
-          <hr>
           <h2 id="8-max-flow-min-cut-theorem">8. Max-Flow Min-Cut Theorem</h2>
           <p>The <strong>Max-Flow Min-Cut Theorem</strong> states:</p>
           <blockquote>
@@ -411,7 +386,6 @@
           <li>Nodes reachable from the source in the residual graph form one side of the minimum cut</li>
           <li>Edges crossing the cut define the cut capacity</li>
           </ul>
-          <hr>
           <h2 id="9-applications">9. Applications</h2>
           <ol>
           <li><strong>Computer Networks</strong>: Bandwidth allocation and routing</li>
@@ -420,9 +394,8 @@
           <li><strong>Project Scheduling</strong>: Task dependency resolution</li>
           <li><strong>Image Segmentation</strong>: Graph-cut based vision algorithms</li>
           </ol>
-          <hr>
           <h2 id="10-summary">10. Summary</h2>
-          <p>The Ford–Fulkerson algorithm provides a foundational framework for solving maximum flow problems.<br>By iteratively improving flow using augmenting paths and residual graphs, it demonstrates how local decisions lead to globally optimal solutions, forming the basis for many modern network flow algorithms.</p>
+          <p>The Ford–Fulkerson algorithm provides a foundational framework for solving maximum flow problems. By iteratively improving flow using augmenting paths and residual graphs, it demonstrates how local decisions lead to globally optimal solutions, forming the basis for many modern network flow algorithms.</p>
           
           </div>
           <div class="bug-report-mobile">
